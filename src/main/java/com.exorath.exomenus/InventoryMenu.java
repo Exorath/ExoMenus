@@ -36,7 +36,9 @@ public class InventoryMenu {
     public InventoryMenu(String title, Size size, MenuItem[] items, InventoryMenu parent) {
         this.title = title;
         this.size = size;
-        this.items = items;
+        this.items = new MenuItem[size.getslots()];
+        for (int i = 0; i < items.length; i++)
+            this.items[i] = items[i];
         this.parent = parent;
     }
 
@@ -71,7 +73,7 @@ public class InventoryMenu {
     public void onClick(InventoryClickEvent event) {
         clickSubject.onNext(event);
         int slot = event.getRawSlot();
-        if (slot >= 0 && slot < size.getslots() && items[slot] != null) {
+        if (slot >= 0 && slot < size.getslots() && slot < items.length && items[slot] != null) {
             items[slot].onItemClick(event);
         }
     }
