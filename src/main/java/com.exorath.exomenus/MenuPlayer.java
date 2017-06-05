@@ -23,16 +23,16 @@ import org.bukkit.inventory.InventoryHolder;
  * Created by toonsev on 3/18/2017.
  */
 public class MenuPlayer implements InventoryHolder {
-    private Inventory iventory;
+    private Inventory inventory;
     private InventoryMenu menu;
 
-    public MenuPlayer(Inventory iventory, InventoryMenu menu) {
-        this.iventory = iventory;
+    public MenuPlayer(Inventory inventory, InventoryMenu menu) {
+        this.inventory = inventory;
         this.menu = menu;
     }
 
     public Inventory getInventory() {
-        return getInventory();
+        return inventory;
     }
 
     public InventoryMenu getMenu() {

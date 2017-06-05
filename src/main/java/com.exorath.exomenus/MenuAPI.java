@@ -29,16 +29,21 @@ import org.bukkit.plugin.Plugin;
  */
 public class MenuAPI implements Listener {
 
-    public MenuAPI(Plugin plugin){
+    public MenuAPI(Plugin plugin) {
         Bukkit.getPluginManager().registerEvents(this, plugin);
     }
+
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
     public void onInventoryClick(InventoryClickEvent event) {
+        System.out.println("Clicked");
         if (!(event.getWhoClicked() instanceof Player))
             return;
+        System.out.println("Player");
         if (!(event.getInventory().getHolder() instanceof MenuPlayer))
             return;
+        System.out.println("MenuPlayer");
         event.setCancelled(true);
+        System.out.println("cancelled");
         ((MenuPlayer) event.getInventory().getHolder()).getMenu().onClick(event);
     }
 
