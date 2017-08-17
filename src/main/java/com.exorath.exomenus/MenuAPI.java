@@ -22,15 +22,15 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
-import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 /**
  * Created by toonsev on 3/18/2017.
  */
-public class MenuAPI implements Listener {
-
-    public MenuAPI(Plugin plugin) {
-        Bukkit.getPluginManager().registerEvents(this, plugin);
+public class MenuAPI extends JavaPlugin implements Listener {
+    @Override
+    public void onEnable() {
+        Bukkit.getPluginManager().registerEvents(this, this);
     }
 
     @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
@@ -46,5 +46,4 @@ public class MenuAPI implements Listener {
         System.out.println("cancelled");
         ((MenuPlayer) event.getInventory().getHolder()).getMenu().onClick(event);
     }
-
 }
