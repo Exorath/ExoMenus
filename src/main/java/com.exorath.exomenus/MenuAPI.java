@@ -33,7 +33,7 @@ public class MenuAPI extends JavaPlugin implements Listener {
         Bukkit.getPluginManager().registerEvents(this, this);
     }
 
-    @EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onInventoryClick(InventoryClickEvent event) {
         System.out.println("Clicked");
         if (!(event.getWhoClicked() instanceof Player))
